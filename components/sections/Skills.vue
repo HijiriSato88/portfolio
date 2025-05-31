@@ -1,9 +1,21 @@
 <template>
   <section id="skills" class="skills-section">
     <div class="page-container">
-      <h2 class="section-title">Skills</h2>
+      <h2 
+        class="section-title"
+        v-motion
+        v-bind="sectionTitleAnimation"
+      >
+        Skills
+      </h2>
       <div class="skills-grid grid md:grid-cols-3 gap-8">
-        <div v-for="category in skillCategories" :key="category.title" class="skill-category">
+        <div 
+          v-for="(category, index) in skillCategories" 
+          :key="category.title" 
+          class="skill-category"
+          v-motion
+          v-bind="slideUpAnimation(200 + (index * 150))"
+        >
           <div class="flex justify-center mb-3">
             <h3 class="text-xl font-bold text-center">{{ category.title }}</h3>
           </div>
@@ -19,10 +31,24 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import { useAnimations } from '~/composables/useAnimations'
 
-const skillCategories = [
+// アニメーション設定を取得
+const { sectionTitleAnimation, slideUpAnimation } = useAnimations()
+
+interface SkillItem {
+  name: string;
+  icon: string;
+}
+
+interface SkillCategory {
+  title: string;
+  items: SkillItem[];
+}
+
+const skillCategories: SkillCategory[] = [
   {
     title: 'Languages',
     items: [
@@ -54,3 +80,7 @@ const skillCategories = [
   }
 ]
 </script>
+
+<style scoped>
+/* Skills固有のスタイルは styles.scss で管理 */
+</style>

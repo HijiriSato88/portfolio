@@ -41,16 +41,22 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
-const form = ref({
+interface ContactForm {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const form = ref<ContactForm>({
   name: '',
   email: '',
   message: ''
 })
 
-const handleSubmit = () => {
+const handleSubmit = (): void => {
   // フォーム送信処理をここに追加
   console.log('Form submitted:', form.value)
   // 実際のアプリケーションでは、ここでAPIに送信したりします

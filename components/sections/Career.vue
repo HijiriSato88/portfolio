@@ -1,9 +1,21 @@
 <template>
   <section id="career" class="career-section">
     <div class="page-container">
-      <h2 class="section-title">Career</h2>
+      <h2 
+        class="section-title"
+        v-motion
+        v-bind="sectionTitleAnimation"
+      >
+        Career
+      </h2>
       <div class="timeline">
-        <div v-for="job in careerHistory" :key="job.id" class="timeline-item">
+        <div 
+          v-for="(job, index) in careerHistory" 
+          :key="job.id" 
+          class="timeline-item"
+          v-motion
+          v-bind="alternateSlideAnimation(index)"
+        >
           <div class="timeline-date">{{ job.period }}</div>
           <div class="timeline-content">
             <h3>{{ job.title }}</h3>
@@ -16,8 +28,21 @@
   </section>
 </template>
 
-<script setup>
-const careerHistory = [
+<script setup lang="ts">
+import { useAnimations } from '~/composables/useAnimations'
+
+// アニメーション設定を取得
+const { sectionTitleAnimation, alternateSlideAnimation } = useAnimations()
+
+interface CareerItem {
+  id: number;
+  period: string;
+  title: string;
+  company: string;
+  description: string;
+}
+
+const careerHistory: CareerItem[] = [
   {
     id: 1,
     period: '2022 -',
@@ -55,7 +80,6 @@ const careerHistory = [
                   フルスタックに近い立ち回りでプロダクト開発に貢献している。`
   },
 ]
-
 </script>
 
 <style scoped>

@@ -4,8 +4,7 @@
       <h2 
         class="section-title"
         v-motion
-        :initial="{ opacity: 0, y: 40 }"
-        :visible-once="{ opacity: 1, y: 0, transition: { duration: 1000, ease: 'easeOutQuart' } }"
+        v-bind="sectionTitleAnimation"
       >
         About Me
       </h2>
@@ -13,8 +12,7 @@
         <div 
           class="about-image"
           v-motion
-          :initial="{ opacity: 0, x: -50 }"
-          :visible-once="{ opacity: 1, x: 0, transition: { duration: 1200, delay: 300, ease: 'easeOutQuart' } }"
+          v-bind="slideFromSideAnimation('left', 300)"
         >
           <NuxtImg 
             src="/images/icon.png" 
@@ -30,8 +28,7 @@
         <div 
           class="about-text"
           v-motion
-          :initial="{ opacity: 0, x: 50 }"
-          :visible-once="{ opacity: 1, x: 0, transition: { duration: 1200, delay: 600, ease: 'easeOutQuart' } }"
+          v-bind="slideFromSideAnimation('right', 600)"
         >
           <p>
             埼玉に住んでいる大学生エンジニア<br>
@@ -50,8 +47,11 @@
   </section>
 </template>
 
-<script setup>
-// Aboutセクションのロジックをここに追加可能
+<script setup lang="ts">
+import { useAnimations } from '~/composables/useAnimations'
+
+// アニメーション設定を取得
+const { sectionTitleAnimation, slideFromSideAnimation } = useAnimations()
 </script>
 
 <style scoped>
