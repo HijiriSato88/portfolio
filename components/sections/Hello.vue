@@ -120,6 +120,28 @@ onMounted(() => {
   border-radius: 8px !important;
   /* 初期表示時はトランジション無し */
   transition: none !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
+  max-width: 90vw !important;
+  
+  /* スマホ対応 */
+  @media (max-width: 767px) {
+    font-size: 0.6rem !important;
+    letter-spacing: 1px !important;
+    word-spacing: 4px !important;
+    padding: 0.3em 0.6em !important;
+    line-height: 1.2 !important;
+    max-width: 85vw !important;
+  }
+  
+  /* 非常に小さい画面対応 */
+  @media (max-width: 480px) {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.5px !important;
+    word-spacing: 2px !important;
+    padding: 0.2em 0.4em !important;
+    max-width: 80vw !important;
+  }
 }
 
 /* 英語文字時のスタイル */
