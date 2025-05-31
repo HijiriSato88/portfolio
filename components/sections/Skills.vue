@@ -80,7 +80,3 @@ const skillCategories: SkillCategory[] = [
   }
 ]
 </script>
-
-<style scoped>
-/* Skills固有のスタイルは styles.scss で管理 */
-</style>

@@ -97,32 +97,8 @@ body {
   letter-spacing: 0.1em;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  font-size: 1.5rem;
-  color: $gray-400;
-  animation: bounce 2s infinite;
-}
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
 
 // Section Title
 .section-title {

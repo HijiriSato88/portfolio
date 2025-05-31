@@ -51,7 +51,6 @@ const careerHistory: CareerItem[] = [
     description: `スマートICTソリューション研究室に在籍し、
                   どこからでも参加できるオープンキャンパス向けWebシステムの開発に取り組んでいる。
                   また、課外活動として硬式庭球部にも所属し、文武両道を大切にしている。`
-
   },
   {
     id: 2,
@@ -82,6 +81,3 @@ const careerHistory: CareerItem[] = [
 ]
 </script>
 
-<style scoped>
-/* Career固有のスタイルがあればここに追加 */
-</style>

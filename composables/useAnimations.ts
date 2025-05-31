@@ -19,7 +19,7 @@ interface AnimationConfig {
   };
 }
 
-type AnimationDirection = 'left' | 'right';
+type AnimationDirection = 'left' | 'right' | 'bottom';
 
 export const useAnimations = () => {
   // セクションタイトル用のアニメーション
@@ -40,7 +40,7 @@ export const useAnimations = () => {
       y: 0, 
       transition: { 
         duration: 800, 
-        delay: delay, 
+        delay, 
         ease: 'easeOutQuart' 
       } 
     }
@@ -60,22 +60,34 @@ export const useAnimations = () => {
     }
   })
 
-  // 左右からのスライドイン（About用）
+  // 方向指定スライドイン
   const slideFromSideAnimation = (
     direction: AnimationDirection = 'left', 
     delay: number = 300
-  ): AnimationConfig => ({
-    initial: { opacity: 0, x: direction === 'left' ? -50 : 50 },
-    visibleOnce: { 
-      opacity: 1, 
-      x: 0, 
-      transition: { 
-        duration: 1200, 
-        delay: delay, 
-        ease: 'easeOutQuart' 
-      } 
+  ): AnimationConfig => {
+    const getInitialPosition = () => {
+      switch(direction) {
+        case 'left': return { x: -50, y: 0 };
+        case 'right': return { x: 50, y: 0 };
+        case 'bottom': return { x: 0, y: 50 };
+        default: return { x: -50, y: 0 };
+      }
     }
-  })
+
+    return {
+      initial: { opacity: 0, ...getInitialPosition() },
+      visibleOnce: { 
+        opacity: 1, 
+        x: 0, 
+        y: 0,
+        transition: { 
+          duration: 1200, 
+          delay, 
+          ease: 'easeOutQuart' 
+        } 
+      }
+    }
+  }
 
   return {
     sectionTitleAnimation,

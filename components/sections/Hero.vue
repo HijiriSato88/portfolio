@@ -10,12 +10,12 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref, computed } from 'vue';
 
-const isPageLoaded = ref(false);
-const displayText = ref('');
-const isTransitioning = ref(false);
+const isPageLoaded = ref<boolean>(false);
+const displayText = ref<string>('');
+const isTransitioning = ref<boolean>(false);
 
 // "Hijiri Sato"を二進数に変換
 const targetText = 'HIJIRI SATO';
@@ -29,7 +29,7 @@ const isBinaryMode = computed(() => {
 });
 
 // 二進数から英語への変化アニメーション
-const animateTextTransition = () => {
+const animateTextTransition = (): void => {
   const binaryChars = binaryText.split('');
   const targetChars = targetText.split('');
   let currentText = binaryText;
