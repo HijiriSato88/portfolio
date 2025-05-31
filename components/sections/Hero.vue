@@ -3,7 +3,7 @@
     <div class="page-transition-container">
       <div class="hero-content">
         <h1 class="hero-title">
-          <span class="hero-name" :class="{ 'binary-mode': isBinaryMode, 'transitioning': isTransitioning }">{{ displayText }}</span>
+          <span class="hero-name" :class="{ 'binary-mode': isBinaryMode, 'transitioning': isTransitioning, 'scale-up': shouldScaleUp }">{{ displayText }}</span>
         </h1>
       </div>
     </div>
@@ -16,6 +16,7 @@ import { onMounted, ref, computed } from 'vue';
 const isPageLoaded = ref<boolean>(false);
 const displayText = ref<string>('');
 const isTransitioning = ref<boolean>(false);
+const shouldScaleUp = ref<boolean>(false);
 
 // "Hijiri Sato"を二進数に変換
 const targetText = 'HIJIRI SATO';
@@ -73,6 +74,12 @@ const animateTextTransition = (): void => {
       displayText.value = targetText;
       // 変換完了時にトランジションを有効にする
       isTransitioning.value = true;
+      
+      // 変換完了から1.5秒後にゆっくりと通常サイズまで拡大
+      setTimeout(() => {
+        shouldScaleUp.value = true;
+      }, 1500);
+      
       clearInterval(interval);
     }
   }, intervalTime);
@@ -99,9 +106,9 @@ onMounted(() => {
   height: 100vh;
 }
 
-/* 英語文字への変化時のトランジション */
+/* 英語文字への変化時のトランジション - サイズ変更を除外 */
 .hero-name.transitioning {
-  transition: color 2s ease, border-color 2s ease, background-color 2s ease, font-size 3s ease, padding 3s ease, font-family 3s ease, font-weight 2s ease, text-transform 2s ease, letter-spacing 2s ease;
+  transition: color 2s ease, border-color 2s ease, background-color 2s ease, font-family 3s ease, font-weight 2s ease, text-transform 2s ease, letter-spacing 2s ease;
 }
 
 /* 二進数モード時のスタイル - 最初から適用 */
@@ -143,7 +150,7 @@ onMounted(() => {
   }
 }
 
-/* 英語文字時のスタイル */
+/* 英語文字時のスタイル - 変換直後は小さなサイズを維持 */
 .hero-name:not(.binary-mode) {
   background-color: transparent;
   color: var(--accent);
@@ -153,6 +160,30 @@ onMounted(() => {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: color 0.3s ease;
+  /* 変換直後は二進数と同じ小さなサイズを維持 */
+  font-size: 0.8rem;
+  
+  @media (max-width: 767px) {
+    font-size: 0.6rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.5rem;
+  }
+}
+
+/* ゆっくりと通常サイズまで拡大するアニメーション */
+.hero-name.scale-up {
+  font-size: 4rem !important;
+  letter-spacing: 0.1em;
+  transition: font-size 3s cubic-bezier(0.25, 0.46, 0.45, 0.94), letter-spacing 3s ease;
+  
+  @media (min-width: 768px) {
+    font-size: 5.5rem !important;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 2.5rem !important;
+  }
 }
 </style>
