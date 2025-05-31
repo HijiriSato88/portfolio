@@ -5,7 +5,7 @@
         class="section-title"
         v-motion
         :initial="{ opacity: 0, y: 40 }"
-        :visible-once="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
+        :visible-once="{ opacity: 1, y: 0, transition: { duration: 1000, ease: 'easeOutQuart' } }"
       >
         About Me
       </h2>
@@ -14,7 +14,7 @@
           class="about-image"
           v-motion
           :initial="{ opacity: 0, x: -50 }"
-          :visible-once="{ opacity: 1, x: 0, transition: { duration: 700, delay: 200, ease: 'easeOut' } }"
+          :visible-once="{ opacity: 1, x: 0, transition: { duration: 1200, delay: 300, ease: 'easeOutQuart' } }"
         >
           <NuxtImg 
             src="/images/icon.png" 
@@ -31,7 +31,7 @@
           class="about-text"
           v-motion
           :initial="{ opacity: 0, x: 50 }"
-          :visible-once="{ opacity: 1, x: 0, transition: { duration: 700, delay: 400, ease: 'easeOut' } }"
+          :visible-once="{ opacity: 1, x: 0, transition: { duration: 1200, delay: 600, ease: 'easeOutQuart' } }"
         >
           <p>
             I'm a passionate developer with a keen eye for design and a commitment to 

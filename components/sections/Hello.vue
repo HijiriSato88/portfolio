@@ -4,13 +4,13 @@
       class="hero-content"
       v-motion
       :initial="{ opacity: 0, y: 50 }"
-      :enter="{ opacity: 1, y: 0, transition: { duration: 800, ease: 'easeOut' } }"
+      :enter="{ opacity: 1, y: 0, transition: { duration: 1200, ease: 'easeOutQuart' } }"
     >
       <h1 
         class="hero-title"
         v-motion
         :initial="{ opacity: 0, y: 30 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200, ease: 'easeOut' } }"
+        :enter="{ opacity: 1, y: 0, transition: { duration: 1200, delay: 400, ease: 'easeOutQuart' } }"
       >
         Hello, I'm <span class="hero-name">Hijiri Sato</span>
       </h1>
@@ -19,7 +19,7 @@
       class="scroll-indicator"
       v-motion
       :initial="{ opacity: 0, scale: 0.8 }"
-      :enter="{ opacity: 1, scale: 1, transition: { duration: 600, delay: 800, ease: 'easeOut' } }"
+      :enter="{ opacity: 1, scale: 1, transition: { duration: 1000, delay: 1200, ease: 'easeOutBack' } }"
     >
       ↓
     </div>
