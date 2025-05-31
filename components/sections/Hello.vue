@@ -1,7 +1,6 @@
 <template>
   <section class="hero-section">
     <div class="page-transition-container">
-      <!-- テキストコンテンツ - 常に表示される -->
       <div class="hero-content">
         <h1 class="hero-title">
           <span class="hero-name" :class="{ 'binary-mode': isBinaryMode, 'transitioning': isTransitioning }">{{ displayText }}</span>

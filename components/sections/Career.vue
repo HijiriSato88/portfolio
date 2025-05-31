@@ -20,26 +20,42 @@
 const careerHistory = [
   {
     id: 1,
-    period: '2021 - Present',
-    title: 'Senior Frontend Developer',
-    company: 'Tech Company Inc.',
-    description: 'Leading the frontend development team, implementing new features, and improving performance across the platform. Mentoring junior developers and contributing to the company\'s design system.'
+    period: '2022 -',
+    title: 'student',
+    company: '東京電機大学',
+    description: `スマートICTソリューション研究室に在籍し、
+                  どこからでも参加できるオープンキャンパス向けWebシステムの開発に取り組んでいる。
+                  また、課外活動として硬式庭球部にも所属し、文武両道を大切にしている。`
+
   },
   {
     id: 2,
-    period: '2018 - 2021',
-    title: 'Frontend Developer',
-    company: 'Digital Agency Co.',
-    description: 'Developed responsive websites and web applications for various clients. Collaborated with designers and backend developers to deliver high-quality products on time and within budget.'
+    period: '2024 / 8 - 2024 / 9',
+    title: 'engineer intern',
+    company: 'アスクル株式会社',
+    description: `国内最大級のBtoB向けECサイト『ASKUL／SOLOEL』におけるバックエンド開発業務を経験。
+                  実務での開発体験を通じて、大規模サービスの仕組みを学んだ。`
   },
   {
     id: 3,
-    period: '2016 - 2018',
-    title: 'Junior Web Developer',
-    company: 'Startup Studio',
-    description: 'Assisted in the development of web applications, fixed bugs, and implemented new features. Gained experience in modern web development practices and tools.'
-  }
+    period: '2024 / 10 - 2024 / 12',
+    title: 'engineer intern',
+    company: '株式会社ヴァル研究所',
+    description: `『駅すぱあと』搭載用の運賃データ・ダイヤデータ作成や、
+                  それらの妥当性チェックツールの開発・改修を担当。
+                  正確性と効率性を意識したツール開発に注力した。`
+  },
+  {
+    id: 4,
+    period: '2025 / 1 -',
+    title: 'engineer intern',
+    company: '株式会社ラブグラフ',
+    description: `運用システムの新機能開発および既存機能の改修を担当。
+                  バックエンドを主軸に、フロントエンドのタスクも積極的に対応し、
+                  フルスタックに近い立ち回りでプロダクト開発に貢献している。`
+  },
 ]
+
 </script>
 
 <style scoped>
