@@ -91,12 +91,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.hero-section {
-  position: relative;
-  overflow: hidden;
-  background-color: #000;
-}
-
 .page-transition-container {
   position: relative;
   display: flex;
@@ -104,24 +98,6 @@ onMounted(() => {
   align-items: center;
   width: 100%;
   height: 100vh;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-}
-
-.hero-title {
-  color: #fff;
-  text-align: center;
-}
-
-.hero-name {
-  display: inline-block;
-  white-space: nowrap;
-  color: #fff;
-  /* 英語文字への変化時のみトランジション */
-  transition: none;
 }
 
 /* 英語文字への変化時のトランジション */
@@ -138,9 +114,9 @@ onMounted(() => {
   word-spacing: 8px !important;
   text-align: center !important;
   background-color: transparent !important;
-  color: #fff !important;
+  color: #000 !important;
   padding: 0.5em 1em !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #000 !important;
   border-radius: 8px !important;
   /* 初期表示時はトランジション無し */
   transition: none !important;
@@ -149,7 +125,7 @@ onMounted(() => {
 /* 英語文字時のスタイル */
 .hero-name:not(.binary-mode) {
   background-color: transparent;
-  color: #fff;
+  color: #000;
   border: none;
   padding: 0;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
