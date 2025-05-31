@@ -22,7 +22,6 @@
             <a href="#skills" @click="closeMobileMenu">Skills</a>
             <a href="#career" @click="closeMobileMenu">Career</a>
             <a href="#contact" @click="closeMobileMenu">Contact</a>
-            <button class="theme-toggle">☀</button>
           </div>
         </nav>
       </div>
@@ -36,7 +35,6 @@
       <div class="page-container">
         <div class="footer-content">
           <p>&copy; {{ new Date().getFullYear() }} hijiri. All rights reserved.</p>
-          <button class="scroll-to-top">↑</button>
         </div>
       </div>
     </footer>

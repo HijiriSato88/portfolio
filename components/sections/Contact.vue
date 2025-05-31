@@ -65,18 +65,6 @@
             v-motion
             v-bind="slideFromSideAnimation('bottom', 800)"
           >
-            <a href="https://github.com/HijiriSato88" target="_blank" rel="noopener noreferrer" class="social-link">
-              <Icon icon="simple-icons:github" class="w-5 h-5" />
-              GitHub
-            </a>
-            <a href="https://x.com/dxeynzdxiy8" target="_blank" rel="noopener noreferrer" class="social-link">
-              <Icon icon="simple-icons:x" class="w-5 h-5" />
-              X
-            </a>
-            <a href="https://zenn.dev/hijiri_88" target="_blank" rel="noopener noreferrer" class="social-link">
-              <Icon icon="simple-icons:zenn" class="w-5 h-5" />
-              Zenn
-            </a>
           </div>
         </div>
       </div>
