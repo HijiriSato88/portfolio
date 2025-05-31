@@ -3,9 +3,13 @@
     <header class="site-header">
       <div class="page-container">
         <nav class="site-nav">
-          <a href="/" class="nav-logo">hijiri.dev</a>
+          <a href="/" class="nav-logo">Portfolio</a>
           <div class="nav-links">
-            <a href="/">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#career">Career</a>
+            <a href="#contact">Contact</a>
+            <button class="theme-toggle">☀</button>
           </div>
         </nav>
       </div>
@@ -17,7 +21,10 @@
 
     <footer class="site-footer">
       <div class="page-container">
-        &copy; {{ new Date().getFullYear() }} hijiri.dev - All rights reserved
+        <div class="footer-content">
+          <p>&copy; {{ new Date().getFullYear() }} hijiri. All rights reserved.</p>
+          <button class="scroll-to-top">↑</button>
+        </div>
       </div>
     </footer>
   </div>
