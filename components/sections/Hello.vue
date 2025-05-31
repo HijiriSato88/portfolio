@@ -4,7 +4,7 @@
       <!-- テキストコンテンツ - 常に表示される -->
       <div class="hero-content">
         <h1 class="hero-title">
-          <span class="hero-name" :class="{ 'binary-mode': isBinaryMode }">{{ displayText }}</span>
+          <span class="hero-name" :class="{ 'binary-mode': isBinaryMode, 'transitioning': isTransitioning }">{{ displayText }}</span>
         </h1>
       </div>
     </div>
@@ -16,6 +16,7 @@ import { onMounted, ref, computed } from 'vue';
 
 const isPageLoaded = ref(false);
 const displayText = ref('');
+const isTransitioning = ref(false);
 
 // "Hijiri Sato"を二進数に変換
 const targetText = 'Hijiri Sato';
@@ -35,9 +36,9 @@ const animateTextTransition = () => {
   let currentText = binaryText;
   
   // 各文字の変化タイミングを計算
-  const totalDuration = 3000; // 3秒
+  const totalDuration = 6000; // 6秒に延長
   const charCount = targetChars.length;
-  const intervalTime = 50; // 50msごとに更新
+  const intervalTime = 80; // 80msごとに更新（よりゆっくり）
   
   let progress = 0;
   const maxProgress = totalDuration / intervalTime;
@@ -47,7 +48,7 @@ const animateTextTransition = () => {
     let newText = '';
     
     for (let i = 0; i < targetChars.length; i++) {
-      const charProgress = (progress - (i * 5)) / (maxProgress / charCount);
+      const charProgress = (progress - (i * 8)) / (maxProgress / charCount); // より段階的に
       
       if (charProgress <= 0) {
         // まだ二進数のまま
@@ -59,7 +60,7 @@ const animateTextTransition = () => {
         newText += targetChars[i];
       } else {
         // 変化中（ランダムな0と1から徐々に正しい文字へ）
-        if (Math.random() < charProgress) {
+        if (Math.random() < charProgress * 0.7) { // より慎重な変化
           newText += targetChars[i];
         } else {
           newText += Math.random() < 0.5 ? '0' : '1';
@@ -71,6 +72,8 @@ const animateTextTransition = () => {
     
     if (progress >= maxProgress) {
       displayText.value = targetText;
+      // 変換完了時にトランジションを有効にする
+      isTransitioning.value = true;
       clearInterval(interval);
     }
   }, intervalTime);
@@ -117,7 +120,13 @@ onMounted(() => {
   display: inline-block;
   white-space: nowrap;
   color: #fff;
-  transition: color 0.3s ease;
+  /* 英語文字への変化時のみトランジション */
+  transition: none;
+}
+
+/* 英語文字への変化時のトランジション */
+.hero-name.transitioning {
+  transition: color 2s ease, border-color 2s ease, background-color 2s ease, font-size 3s ease, padding 3s ease, font-family 3s ease;
 }
 
 /* 二進数モード時のスタイル - 最初から適用 */
@@ -133,6 +142,7 @@ onMounted(() => {
   padding: 0.5em 1em !important;
   border: 1px solid #00ff00 !important;
   border-radius: 8px !important;
+  /* 初期表示時はトランジション無し */
   transition: none !important;
 }
 
@@ -140,5 +150,8 @@ onMounted(() => {
 .hero-name:not(.binary-mode) {
   background-color: transparent;
   color: #fff;
+  border: none;
+  padding: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 </style>
