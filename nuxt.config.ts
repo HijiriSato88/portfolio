@@ -1,8 +1,12 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxt/image", "@vueuse/motion/nuxt"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+    "@nuxt/image",
+    "@vueuse/motion/nuxt"
+  ],
   css: [
     '~/assets/css/tailwind.scss',
     '~/assets/css/styles.scss'
@@ -15,7 +19,6 @@ export default defineNuxtConfig({
     display: 'swap'
   },
   image: {
-    // 画像最適化の設定
     quality: 90,
     format: ['webp'],
     screens: {
@@ -42,5 +45,8 @@ export default defineNuxtConfig({
       },
       plugins: [],
     }
-  }
+  },
+  build: {
+    transpile: ['@iconify/vue']
+  },
 })
