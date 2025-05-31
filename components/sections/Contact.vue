@@ -103,16 +103,9 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   h3 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: var(--gray-900, #111111);
+    color: #111111;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-  }
-  
-  p {
-    color: var(--gray-700, #2d2d2d);
-    margin-bottom: 3rem;
-    line-height: 1.7;
-    font-size: 1.1rem;
   }
 }
 
@@ -129,28 +122,28 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--gray-100, #f5f5f5);
+  background-color: #f5f5f5;
   border-radius: 8px;
   transition: all 0.2s ease;
   
   &:hover {
-    background-color: var(--gray-200, #e5e5e5);
+    background-color: #e5e5e5;
     transform: translateY(-2px);
   }
   
   .contact-icon {
     font-size: 1.5rem;
-    color: var(--black, #000000);
+    color: #000000;
   }
   
   span, a {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    color: var(--gray-700, #2d2d2d);
+    color: #2d2d2d;
     text-decoration: none;
     
     &:hover {
-      color: var(--black, #000000);
+      color: #000000;
     }
   }
 }
@@ -163,10 +156,10 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
 }
 
 .social-link {
-  color: var(--gray-700, #2d2d2d);
+  color: #2d2d2d;
   text-decoration: none;
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--gray-300, #d4d4d4);
+  border: 1px solid #d4d4d4;
   border-radius: 8px;
   transition: all 0.2s ease;
   display: flex;
@@ -178,9 +171,9 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   letter-spacing: 0.02em;
   
   &:hover {
-    background-color: var(--black, #000000);
-    color: var(--white, #ffffff);
-    border-color: var(--black, #000000);
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }

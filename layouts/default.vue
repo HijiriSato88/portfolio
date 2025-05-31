@@ -4,11 +4,24 @@
       <div class="page-container">
         <nav class="site-nav">
           <a href="/" class="nav-logo">Portfolio</a>
-          <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#career">Career</a>
-            <a href="#contact">Contact</a>
+          
+          <!-- モバイルメニュートグル -->
+          <button 
+            class="mobile-menu-toggle"
+            @click="toggleMobileMenu"
+            :class="{ active: isMobileMenuOpen }"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          
+          <!-- ナビゲーションリンク -->
+          <div class="nav-links" :class="{ active: isMobileMenuOpen }">
+            <a href="#about" @click="closeMobileMenu">About</a>
+            <a href="#skills" @click="closeMobileMenu">Skills</a>
+            <a href="#career" @click="closeMobileMenu">Career</a>
+            <a href="#contact" @click="closeMobileMenu">Contact</a>
             <button class="theme-toggle">☀</button>
           </div>
         </nav>
@@ -28,4 +41,18 @@
       </div>
     </footer>
   </div>
-</template> 
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isMobileMenuOpen = ref(false)
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false
+}
+</script> 
