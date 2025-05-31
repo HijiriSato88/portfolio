@@ -4,9 +4,8 @@
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid grid md:grid-cols-3 gap-8">
         <div v-for="category in skillCategories" :key="category.title" class="skill-category">
-          <div class="flex items-center space-x-2 mb-2">
-            <Icon :icon="category.icon" class="w-6 h-6" />
-            <h3 class="text-xl font-bold">{{ category.title }}</h3>
+          <div class="flex justify-center mb-3">
+            <h3 class="text-xl font-bold text-center">{{ category.title }}</h3>
           </div>
           <ul class="space-y-2">
             <li v-for="item in category.items" :key="item.name" class="flex items-center gap-3 py-2 border-b border-gray-200">
@@ -26,7 +25,6 @@ import { Icon } from '@iconify/vue'
 const skillCategories = [
   {
     title: 'Languages',
-    icon: 'mdi:code-braces',
     items: [
       { name: 'Ruby', icon: 'simple-icons:ruby' },
       { name: 'Kotlin', icon: 'simple-icons:kotlin' },
@@ -37,7 +35,6 @@ const skillCategories = [
   },
   {
     title: 'Frameworks / Libraries',
-    icon: 'mdi:application-brackets',
     items: [
       { name: 'Ruby on Rails', icon: 'simple-icons:rubyonrails' },
       { name: 'Spring Boot', icon: 'simple-icons:springboot' },
@@ -48,7 +45,6 @@ const skillCategories = [
   },
   {
     title: 'Database / Tools',
-    icon: 'mdi:database-cog',
     items: [
       { name: 'MySQL', icon: 'simple-icons:mysql' },
       { name: 'Redis', icon: 'simple-icons:redis' },

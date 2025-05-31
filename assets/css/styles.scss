@@ -236,7 +236,7 @@ body {
     .skill-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1.2rem;
       padding: 0.75rem 0;
       border-bottom: 1px solid $gray-200;
       transition: all 0.2s ease;
@@ -263,7 +263,6 @@ body {
       }
     }
     
-    /* 古いリストスタイル（アイコンなしの場合）のフォールバック */
     li:not(.skill-item) {
       padding: 1rem 0;
       color: $gray-700;
