@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   ],
   googleFonts: {
     families: {
-      Manrope: [200, 300, 400, 500, 600, 700, 800]
+      Manrope: [200, 300, 400, 500, 600, 700, 800],
+      Montserrat: [200, 300, 400, 500, 600, 700, 800]
     },
     display: 'swap'
   },

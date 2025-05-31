@@ -19,7 +19,7 @@ const displayText = ref('');
 const isTransitioning = ref(false);
 
 // "Hijiri Sato"を二進数に変換
-const targetText = 'Hijiri Sato';
+const targetText = 'HIJIRI SATO';
 const binaryText = targetText.split('').map(char => {
   return char.charCodeAt(0).toString(2).padStart(8, '0');
 }).join(' ');
@@ -102,7 +102,7 @@ onMounted(() => {
 
 /* 英語文字への変化時のトランジション */
 .hero-name.transitioning {
-  transition: color 2s ease, border-color 2s ease, background-color 2s ease, font-size 3s ease, padding 3s ease, font-family 3s ease;
+  transition: color 2s ease, border-color 2s ease, background-color 2s ease, font-size 3s ease, padding 3s ease, font-family 3s ease, font-weight 2s ease, text-transform 2s ease, letter-spacing 2s ease;
 }
 
 /* 二進数モード時のスタイル - 最初から適用 */
@@ -150,6 +150,9 @@ onMounted(() => {
   color: #000;
   border: none;
   padding: 0;
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 </style>
