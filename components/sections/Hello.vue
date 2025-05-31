@@ -138,9 +138,9 @@ onMounted(() => {
   word-spacing: 8px !important;
   text-align: center !important;
   background-color: transparent !important;
-  color: #00ff00 !important;
+  color: #fff !important;
   padding: 0.5em 1em !important;
-  border: 1px solid #00ff00 !important;
+  border: 1px solid #fff !important;
   border-radius: 8px !important;
   /* 初期表示時はトランジション無し */
   transition: none !important;
