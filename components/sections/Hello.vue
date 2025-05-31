@@ -1,18 +1,14 @@
 <template>
   <section class="hero-section">
     <div class="page-transition-container">
-      <div 
-        class="hero-content"
-        v-motion
-        :initial="{ opacity: 0 }"
-        :enter="{ opacity: 1, transition: { duration: 1800, delay: 2500, ease: 'easeOutQuart' } }"
-      >
+      <!-- テキストコンテンツ - 常に表示される -->
+      <div class="hero-content">
         <h1 class="hero-title">
           <span class="hero-name">Hijiri Sato</span>
         </h1>
       </div>
-      <!-- アニメーション用の要素 -->
-      <div class="expand-bg" :class="{ 'is-loaded': isPageLoaded }"></div>
+      <!-- 名前の位置から広がる黒背景アニメーション -->
+      <div class="name-bg-expand" :class="{ 'is-loaded': isPageLoaded }"></div>
     </div>
   </section>
 </template>
@@ -43,45 +39,46 @@ onMounted(() => {
   align-items: center;
   width: 100%;
   height: 100vh;
-  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* 拡大する黒背景 */
-.expand-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+/* 名前の位置から広がる黒背景 */
+.name-bg-expand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 140px;
   background-color: #000;
-  z-index: 10;
-  transform-origin: center;
-  transform: scale(0);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  z-index: 1;
+  border-radius: 4px;
 }
 
-.expand-bg.is-loaded {
-  animation: expandBg 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+.name-bg-expand.is-loaded {
+  animation: expandFromName 5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
-@keyframes expandBg {
+@keyframes expandFromName {
   0% {
-    transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
-  80% {
-    transform: scale(1);
+  90% {
+    transform: translate(-50%, -50%) scale(25);
     opacity: 1;
   }
   100% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(25);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(25);
     opacity: 0;
   }
 }
