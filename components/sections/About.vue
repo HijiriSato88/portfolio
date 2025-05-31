@@ -18,9 +18,7 @@
             src="/images/icon.png" 
             alt="Hijiri Sato Profile Picture" 
             class="profile-image"
-            width="250"
-            height="250"
-            sizes="xs:200px sm:250px"
+            sizes="(max-width: 480px) 180px, (max-width: 767px) 200px, 250px"
             loading="lazy"
             format="webp"
           />
@@ -55,34 +53,47 @@ const { sectionTitleAnimation, slideFromSideAnimation } = useAnimations()
 </script>
 
 <style scoped>
+:root {
+  --profile-image-size-desktop: 250px;
+  --profile-image-size-tablet: 200px;
+  --profile-image-size-mobile: 180px;
+  --profile-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --profile-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
 .profile-image {
+  /* レイアウト */
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: var(--profile-image-size-desktop);
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  
+  /* 外観 */
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  margin: 0 auto;
-  display: block;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--profile-shadow);
+  
+  /* アニメーション */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  max-width: 250px;
-  height: auto;
 }
 
 .profile-image:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--profile-shadow-hover);
 }
 
 @media (max-width: 767px) {
   .profile-image {
-    max-width: 200px;
+    max-width: var(--profile-image-size-tablet);
   }
 }
 
 @media (max-width: 480px) {
   .profile-image {
-    max-width: 180px;
+    max-width: var(--profile-image-size-mobile);
   }
 }
 </style>
