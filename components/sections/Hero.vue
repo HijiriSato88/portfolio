@@ -113,9 +113,9 @@ onMounted(() => {
   word-spacing: 8px !important;
   text-align: center !important;
   background-color: transparent !important;
-  color: #000 !important;
+  color: var(--accent) !important;
   padding: 0.5em 1em !important;
-  border: 1px solid #000 !important;
+  border: 1px solid var(--accent) !important;
   border-radius: 8px !important;
   /* 初期表示時はトランジション無し */
   transition: none !important;
@@ -146,12 +146,13 @@ onMounted(() => {
 /* 英語文字時のスタイル */
 .hero-name:not(.binary-mode) {
   background-color: transparent;
-  color: #000;
+  color: var(--accent);
   border: none;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  transition: color 0.3s ease;
 }
 </style>

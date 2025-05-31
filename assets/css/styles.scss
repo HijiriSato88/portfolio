@@ -1,5 +1,32 @@
 @use "sass:color";
 
+// CSS変数定義
+:root {
+  // ライトモード用カラー
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #ffffff;
+  --text-primary: #111111;
+  --text-secondary: #2d2d2d;
+  --text-muted: #737373;
+  --border-color: #e5e5e5;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --accent: #000000;
+}
+
+.dark {
+  // ダークモード用カラー
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #262626;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #a3a3a3;
+  --border-color: #404040;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --accent: #ffffff;
+}
+
 // モノトーン
 $black: #000000;
 $white: #ffffff;
@@ -38,8 +65,9 @@ $gray-100: #f5f5f5;
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  color: $gray-900;
-  background-color: $white;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 // カスタムスタイル
@@ -58,8 +86,9 @@ body {
   text-align: center;
   padding: 0 2rem;
   position: relative;
-  background-color: $white;
+  background-color: var(--bg-primary);
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .hero-content {
@@ -74,10 +103,11 @@ body {
   margin-bottom: 1.5rem;
   line-height: 1.2;
   white-space: nowrap;
-  color: $black;
+  color: var(--text-primary);
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  transition: color 0.3s ease;
   
   @media (min-width: 768px) {
     font-size: 5.5rem;
@@ -86,19 +116,16 @@ body {
 
 .hero-name {
   background-color: transparent;
-  color: $black;
+  color: var(--text-primary);
   padding: 0;
   display: inline-block;
   white-space: nowrap;
-  transition: none;
+  transition: color 0.3s ease;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-
-
-
 
 // Section Title
 .section-title {
@@ -110,6 +137,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
   
   &::after {
     content: '';
@@ -119,13 +148,15 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 2px;
-    background-color: $black;
+    background-color: var(--accent);
+    transition: background-color 0.3s ease;
   }
 }
 
 // About Section
 .about-section {
-  background-color: $gray-100;
+  background-color: var(--bg-secondary);
+  transition: background-color 0.3s ease;
   @include section-padding;
 }
 
@@ -150,7 +181,8 @@ body {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.7;
-    color: $gray-700;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
     
     &:last-child {
       margin-bottom: 0;
@@ -170,15 +202,15 @@ body {
 }
 
 .skill-category {
-  background-color: $white;
-  border: 1px solid $gray-200;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
   padding: 2rem;
   border-radius: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow);
   }
   
   .skill-header {
@@ -197,7 +229,8 @@ body {
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0;
-      color: $gray-900;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
       font-family: 'Montserrat', sans-serif;
     }
   }
@@ -214,12 +247,12 @@ body {
       align-items: center;
       gap: 1.2rem;
       padding: 0.75rem 0;
-      border-bottom: 1px solid $gray-200;
+      border-bottom: 1px solid var(--border-color);
       transition: all 0.2s ease;
       
       &:hover {
         padding-left: 0.5rem;
-        background-color: $gray-100;
+        background-color: var(--bg-secondary);
       }
       
       &:last-child {
@@ -233,7 +266,7 @@ body {
       }
       
       .item-name {
-        color: $gray-700;
+        color: var(--text-secondary);
         font-family: 'Montserrat', sans-serif;
         font-weight: 400;
       }
@@ -241,15 +274,15 @@ body {
     
     li:not(.skill-item) {
       padding: 1rem 0;
-      color: $gray-700;
-      border-bottom: 1px solid $gray-200;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
       
       &:last-child {
         border-bottom: none;
       }
       
       &::before {
-        color: $black;
+        color: var(--accent);
         margin-right: 0.5rem;
       }
     }
@@ -258,7 +291,8 @@ body {
 
 // Career Section
 .career-section {
-  background-color: $gray-100;
+  background-color: var(--bg-secondary);
+  transition: background-color 0.3s ease;
   @include section-padding;
 }
 
@@ -274,7 +308,8 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: $black;
+    background-color: var(--accent);
+    transition: background-color 0.3s ease;
     
     @media (min-width: 768px) {
       left: 50%;
@@ -305,9 +340,10 @@ body {
 
 .timeline-date {
   font-size: 0.9rem;
-  color: $gray-600;
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .timeline-content {
@@ -315,18 +351,21 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: $gray-900;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
   }
   
   .company {
-    color: $gray-600;
+    color: var(--text-muted);
     margin-bottom: 1rem;
     font-weight: 500;
+    transition: color 0.3s ease;
   }
   
   .description {
-    color: $gray-700;
+    color: var(--text-secondary);
     line-height: 1.6;
+    transition: color 0.3s ease;
   }
 }
 
@@ -352,22 +391,22 @@ body {
   letter-spacing: 0.03em;
   
   &.primary {
-    background-color: $black;
-    color: $white;
+    background-color: var(--accent);
+    color: var(--bg-primary);
     
     &:hover {
-      background-color: $gray-800;
+      opacity: 0.8;
     }
   }
   
   &.secondary {
     background-color: transparent;
-    color: $black;
-    border: 1px solid $black;
+    color: var(--accent);
+    border: 1px solid var(--accent);
     
     &:hover {
-      background-color: $black;
-      color: $white;
+      background-color: var(--accent);
+      color: var(--bg-primary);
     }
   }
   
@@ -387,6 +426,11 @@ body {
   border-bottom: 1px solid $gray-800;
   z-index: 100;
   padding: 1rem 0;
+  
+  .dark & {
+    background-color: rgba(15, 15, 15, 0.95);
+    border-bottom-color: var(--border-color);
+  }
   
   .page-container {
     @media (min-width: 769px) {
@@ -482,6 +526,10 @@ body {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     
+    .dark & {
+      background-color: rgba(15, 15, 15, 0.98);
+    }
+    
     &.active {
       transform: translateX(0);
     }
@@ -500,29 +548,49 @@ body {
 
 .theme-toggle {
   background: none;
-  border: 1px solid $gray-600;
+  border: 1px solid $white;
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.2s ease;
-  color: $gray-300;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .theme-icon {
+    font-size: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    line-height: 1;
+  }
   
   &:hover {
-    background-color: $gray-800;
-    color: $white;
+    background-color: $white;
+    color: $black;
+    transform: scale(1.05);
   }
   
   @media (max-width: 768px) {
     font-size: 1.2rem;
     padding: 0.75rem 1rem;
+    
+    .theme-icon {
+      font-size: 1.4rem;
+      width: 1.4rem;
+      height: 1.4rem;
+    }
   }
 }
 
 .site-footer {
-  background-color: $black;
-  color: $white;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-content {

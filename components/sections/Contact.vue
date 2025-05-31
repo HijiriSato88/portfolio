@@ -91,9 +91,10 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   h3 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: #111111;
+    color: var(--text-primary);
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    transition: color 0.3s ease;
   }
 }
 
@@ -110,28 +111,32 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: #f5f5f5;
+  background-color: var(--bg-secondary);
   border-radius: 8px;
   transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
   
   &:hover {
-    background-color: #e5e5e5;
+    background-color: var(--bg-tertiary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
   }
   
   .contact-icon {
     font-size: 1.5rem;
-    color: #000000;
+    color: var(--accent);
+    transition: color 0.3s ease;
   }
   
   span, a {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    color: #2d2d2d;
+    color: var(--text-secondary);
     text-decoration: none;
+    transition: color 0.3s ease;
     
     &:hover {
-      color: #000000;
+      color: var(--text-primary);
     }
   }
 }
@@ -144,10 +149,10 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
 }
 
 .social-link {
-  color: #2d2d2d;
+  color: var(--text-secondary);
   text-decoration: none;
   padding: 0.75rem 1.5rem;
-  border: 1px solid #d4d4d4;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   transition: all 0.2s ease;
   display: flex;
@@ -157,13 +162,14 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  background-color: var(--bg-tertiary);
   
   &:hover {
-    background-color: #000000;
-    color: #ffffff;
-    border-color: #000000;
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px var(--shadow);
   }
 }
 
