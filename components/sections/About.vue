@@ -34,18 +34,15 @@
           :visible-once="{ opacity: 1, x: 0, transition: { duration: 1200, delay: 600, ease: 'easeOutQuart' } }"
         >
           <p>
-            I'm a passionate developer with a keen eye for design and a commitment to 
-            creating intuitive, user-friendly experiences. With a background in both 
-            design and development, I bring a unique perspective to every project.
+            埼玉に住んでいる大学生エンジニア<br>
+            普段は大学生活を送りながら、インターンバイトで開発経験を積んでいます
           </p>
           <p>
-            My approach combines technical expertise with creative problem-solving, 
-            allowing me to build solutions that are not only functional but also 
-            aesthetically pleasing and enjoyable to use.
+            趣味はテニスとプログラミング
           </p>
           <p>
-            When I'm not coding, you can find me exploring new technologies, 
-            contributing to open-source projects, or seeking inspiration in art and nature.
+            最近は、どこにいてもオープンキャンパスに参加できるようなシステムを作っており、  
+            教育の機会をより多くの人に届けることを目指しています
           </p>
         </div>
       </div>
