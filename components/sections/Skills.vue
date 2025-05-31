@@ -9,7 +9,7 @@
             <h3 class="text-xl font-bold">{{ category.title }}</h3>
           </div>
           <ul class="space-y-2">
-            <li v-for="item in category.items" :key="item.name" class="flex items-center space-x-2">
+            <li v-for="item in category.items" :key="item.name" class="flex items-center gap-3 py-2 border-b border-gray-200">
               <Icon :icon="item.icon" class="w-5 h-5" />
               <span>{{ item.name }}</span>
             </li>
