@@ -4,9 +4,15 @@
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
         <div v-for="skill in skillCategories" :key="skill.title" class="skill-category">
-          <h3>{{ skill.title }}</h3>
+          <div class="skill-header">
+            <div class="skill-icon">{{ skill.icon }}</div>
+            <h3>{{ skill.title }}</h3>
+          </div>
           <ul>
-            <li v-for="item in skill.items" :key="item">{{ item }}</li>
+            <li v-for="item in skill.items" :key="item.name" class="skill-item">
+              <span class="item-icon">{{ item.icon }}</span>
+              <span class="item-name">{{ item.name }}</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -17,32 +23,40 @@
 <script setup>
 const skillCategories = [
   {
-    title: 'Frontend Development',
-    items: ['HTML/CSS', 'JavaScript', 'Vue.js', 'Nuxt.js', 'Tailwind CSS']
+    title: 'Languages',
+    icon: '💻',
+    items: [
+      { name: 'Ruby', icon: '💎' },
+      { name: 'Kotlin', icon: '🔶' },
+      { name: 'Go', icon: '🐹' },
+      { name: 'JavaScript', icon: '⚡' },
+      { name: 'TypeScript', icon: '🔷' }
+    ]
   },
   {
-    title: 'Backend Development',
-    items: ['Node.js', 'Express', 'Python', 'Django', 'RESTful APIs']
+    title: 'Frameworks / Libraries',
+    icon: '🏗️',
+    items: [
+      { name: 'Ruby on Rails', icon: '🚃' },
+      { name: 'Spring Boot', icon: '🌱' },
+      { name: 'Unity', icon: '🎮' },
+      { name: 'React', icon: '⚛️' },
+      { name: 'Nuxt', icon: '🎯' },
+    ]
   },
   {
-    title: 'Design',
-    items: ['UI/UX Design', 'Figma', 'Adobe XD', 'Responsive Design', 'Accessibility']
-  },
-  {
-    title: 'Database',
-    items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase']
-  },
-  {
-    title: 'DevOps',
-    items: ['Git', 'GitHub Actions', 'Docker', 'AWS', 'Vercel']
-  },
-  {
-    title: 'Other',
-    items: ['TypeScript', 'GraphQL', 'Testing', 'SEO', 'Performance Optimization']
+    title: 'Database / Tools',
+    icon: '🛠️',
+    items: [
+      { name: 'MySQL', icon: '🐬' },
+      { name: 'Redis', icon: '🔴' },
+      { name: 'Firebase', icon: '🔥' },
+      { name: 'Docker', icon: '🐳' }
+    ]
   }
 ]
 </script>
 
 <style scoped>
-/* Skills固有のスタイルがあればここに追加 */
+/* Skills固有のスタイルは styles.scss で管理 */
 </style>

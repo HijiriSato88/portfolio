@@ -205,17 +205,66 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
   
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
+  .skill-header {
+    display: flex;
+    align-items: center;
     margin-bottom: 1.5rem;
-    color: $gray-900;
+    gap: 0.75rem;
+    
+    .skill-icon {
+      font-size: 2rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0;
+      color: $gray-900;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+  
+  &:hover .skill-header .skill-icon {
+    transform: scale(1.1);
   }
   
   ul {
     list-style: none;
     
-    li {
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid $gray-200;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        padding-left: 0.5rem;
+        background-color: $gray-100;
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .item-icon {
+        font-size: 1.1rem;
+        min-width: 1.5rem;
+        text-align: center;
+      }
+      
+      .item-name {
+        color: $gray-700;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+      }
+    }
+    
+    /* 古いリストスタイル（アイコンなしの場合）のフォールバック */
+    li:not(.skill-item) {
       padding: 0.5rem 0;
       color: $gray-700;
       border-bottom: 1px solid $gray-200;
