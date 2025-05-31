@@ -2,11 +2,8 @@
   <section class="hero-section">
     <div class="hero-content">
       <h1 class="hero-title">
-        Hello, I'm <span class="hero-name">hijiri</span>
+        Hello, I'm <span class="hero-name">Hijiri Sato</span>
       </h1>
-      <p class="hero-description">
-        A passionate developer focused on creating clean, user-friendly experiences
-      </p>
     </div>
     <div class="scroll-indicator">
       ↓

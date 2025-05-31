@@ -4,7 +4,16 @@
       <h2 class="section-title">About Me</h2>
       <div class="about-content">
         <div class="about-image">
-          <div class="profile-placeholder">Profile Image</div>
+          <NuxtImg 
+            src="/images/icon.png" 
+            alt="Hijiri Sato Profile Picture" 
+            class="profile-image"
+            width="250"
+            height="250"
+            sizes="xs:200px sm:250px"
+            loading="lazy"
+            format="webp"
+          />
         </div>
         <div class="about-text">
           <p>
@@ -32,6 +41,19 @@
 </script>
 
 <style scoped>
-/* About固有のスタイルがあればここに追加 */
+.profile-image {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
 </style>
 
