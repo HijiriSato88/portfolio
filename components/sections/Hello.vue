@@ -1,5 +1,5 @@
 <template>
-  <section class="hero-section" :class="{ 'black-bg': isPageLoaded }">
+  <section class="hero-section">
     <div class="page-transition-container">
       <!-- テキストコンテンツ - 常に表示される -->
       <div class="hero-content">
@@ -7,8 +7,6 @@
           <span class="hero-name" :class="{ 'binary-mode': isBinaryMode }">{{ displayText }}</span>
         </h1>
       </div>
-      <!-- 名前の位置から広がる黒背景アニメーション -->
-      <div class="name-bg-expand" :class="{ 'is-loaded': isPageLoaded }"></div>
     </div>
   </section>
 </template>
@@ -82,15 +80,10 @@ onMounted(() => {
   // 最初は二進数で表示
   displayText.value = binaryText;
   
-  // ページロード時にアニメーションを開始
-  setTimeout(() => {
-    isPageLoaded.value = true;
-  }, 500);
-  
-  // 黒背景拡大後にテキスト変化開始
+  // 2秒後にテキスト変化開始
   setTimeout(() => {
     animateTextTransition();
-  }, 5000);
+  }, 2000);
 });
 </script>
 
@@ -98,10 +91,6 @@ onMounted(() => {
 .hero-section {
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s ease 4.2s;
-}
-
-.hero-section.black-bg {
   background-color: #000;
 }
 
@@ -120,76 +109,36 @@ onMounted(() => {
 }
 
 .hero-title {
-  transition: color 0.3s ease 4.2s;
+  color: #fff;
   text-align: center;
 }
 
 .hero-name {
-  transition: all 0.3s ease 4.2s;
   display: inline-block;
   white-space: nowrap;
+  color: #fff;
+  transition: color 0.3s ease;
 }
 
-/* 二進数モード時のスタイル */
+/* 二進数モード時のスタイル - 最初から適用 */
 .hero-name.binary-mode {
-  font-size: 0.8rem;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 2px;
-  line-height: 1.4;
-  word-spacing: 8px;
-  text-align: center;
-  background-color: transparent;
-  color: #333;
-  padding: 0.5em 1em;
-  border: 1px solid #666;
-  border-radius: 8px;
+  font-size: 0.8rem !important;
+  font-family: 'Courier New', monospace !important;
+  letter-spacing: 2px !important;
+  line-height: 1.4 !important;
+  word-spacing: 8px !important;
+  text-align: center !important;
+  background-color: transparent !important;
+  color: #00ff00 !important;
+  padding: 0.5em 1em !important;
+  border: 1px solid #00ff00 !important;
+  border-radius: 8px !important;
+  transition: none !important;
 }
 
-.hero-section.black-bg .hero-title {
-  color: #fff;
-}
-
-.hero-section.black-bg .hero-name:not(.binary-mode) {
+/* 英語文字時のスタイル */
+.hero-name:not(.binary-mode) {
   background-color: transparent;
   color: #fff;
-}
-
-.hero-section.black-bg .hero-name.binary-mode {
-  color: #00ff00;
-  border-color: #00ff00;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* 名前の位置から広がる黒背景 */
-.name-bg-expand {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: 140px;
-  background-color: #000;
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  z-index: 1;
-  border-radius: 4px;
-}
-
-.name-bg-expand.is-loaded {
-  animation: expandFromName 5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-
-@keyframes expandFromName {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  90% {
-    transform: translate(-50%, -50%) scale(25);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(25);
-    opacity: 0;
-  }
 }
 </style>
