@@ -1,9 +1,21 @@
 <template>
   <section id="about" class="about-section">
     <div class="page-container">
-      <h2 class="section-title">About Me</h2>
+      <h2 
+        class="section-title"
+        v-motion
+        :initial="{ opacity: 0, y: 40 }"
+        :visible-once="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
+      >
+        About Me
+      </h2>
       <div class="about-content">
-        <div class="about-image">
+        <div 
+          class="about-image"
+          v-motion
+          :initial="{ opacity: 0, x: -50 }"
+          :visible-once="{ opacity: 1, x: 0, transition: { duration: 700, delay: 200, ease: 'easeOut' } }"
+        >
           <NuxtImg 
             src="/images/icon.png" 
             alt="Hijiri Sato Profile Picture" 
@@ -15,7 +27,12 @@
             format="webp"
           />
         </div>
-        <div class="about-text">
+        <div 
+          class="about-text"
+          v-motion
+          :initial="{ opacity: 0, x: 50 }"
+          :visible-once="{ opacity: 1, x: 0, transition: { duration: 700, delay: 400, ease: 'easeOut' } }"
+        >
           <p>
             I'm a passionate developer with a keen eye for design and a commitment to 
             creating intuitive, user-friendly experiences. With a background in both 
