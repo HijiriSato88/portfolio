@@ -34,14 +34,14 @@ export const useAnimations = () => {
 
   // カード/アイテム用のアニメーション（下からスライドイン）
   const slideUpAnimation = (delay: number = 0): AnimationConfig => ({
-    initial: { opacity: 0, y: 50 },
+    initial: { opacity: 0, y: 30 },
     visibleOnce: { 
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 800, 
+        duration: 600, 
         delay, 
-        ease: 'easeOutQuart' 
+        ease: 'easeOut' 
       } 
     }
   })
@@ -67,10 +67,10 @@ export const useAnimations = () => {
   ): AnimationConfig => {
     const getInitialPosition = () => {
       switch(direction) {
-        case 'left': return { x: -50, y: 0 };
-        case 'right': return { x: 50, y: 0 };
-        case 'bottom': return { x: 0, y: 50 };
-        default: return { x: -50, y: 0 };
+        case 'left': return { x: -30, y: 0 };
+        case 'right': return { x: 30, y: 0 };
+        case 'bottom': return { x: 0, y: 30 };
+        default: return { x: -30, y: 0 };
       }
     }
 
@@ -81,9 +81,9 @@ export const useAnimations = () => {
         x: 0, 
         y: 0,
         transition: { 
-          duration: 1200, 
+          duration: 800, 
           delay, 
-          ease: 'easeOutQuart' 
+          ease: 'easeOut' 
         } 
       }
     }

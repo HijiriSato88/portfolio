@@ -14,14 +14,14 @@
           :key="category.title" 
           class="skill-category"
           v-motion
-          v-bind="slideUpAnimation(200 + (index * 150))"
+          v-bind="slideUpAnimation(100 + (index * 100))"
         >
           <div class="flex justify-center mb-3">
             <h3 class="text-xl font-bold text-center">{{ category.title }}</h3>
           </div>
           <ul class="space-y-2">
-            <li v-for="item in category.items" :key="item.name" class="flex items-center gap-3 py-2 border-b border-gray-200">
-              <Icon :icon="item.icon" class="w-5 h-5" />
+            <li v-for="item in category.items" :key="item.name" class="skill-item">
+              <Icon :icon="item.icon" class="skill-icon" />
               <span>{{ item.name }}</span>
             </li>
           </ul>
@@ -80,3 +80,40 @@ const skillCategories: SkillCategory[] = [
   }
 ]
 </script>
+
+<style scoped>
+.skill-category {
+  /* GPUアクセラレーションを有効化 */
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+  /* パフォーマンス最適化 */
+  contain: layout;
+}
+
+.skill-item:hover {
+  background-color: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+}
+
+.skill-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  /* アイコンの最適化 */
+  will-change: auto;
+}
+</style>

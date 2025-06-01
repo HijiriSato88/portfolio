@@ -12,7 +12,7 @@
         <div 
           class="contact-info"
           v-motion
-          v-bind="slideFromSideAnimation('left', 300)"
+          v-bind="slideFromSideAnimation('left', 200)"
         >
           <h3>Get in Touch</h3>
           
@@ -20,7 +20,7 @@
             <div 
               class="contact-item"
               v-motion
-              v-bind="slideUpAnimation(400)"
+              v-bind="slideUpAnimation(250)"
             >
               <Icon icon="material-symbols:mail" class="contact-icon" />
               <span>satohiji0808@outlook.com</span>
@@ -29,7 +29,7 @@
             <div 
               class="contact-item"
               v-motion
-              v-bind="slideUpAnimation(500)"
+              v-bind="slideUpAnimation(300)"
             >
               <Icon icon="simple-icons:github" class="contact-icon" />
               <a href="https://github.com/HijiriSato88" target="_blank" rel="noopener noreferrer">
@@ -40,7 +40,7 @@
             <div 
               class="contact-item"
               v-motion
-              v-bind="slideUpAnimation(600)"
+              v-bind="slideUpAnimation(350)"
             >
               <Icon icon="simple-icons:x" class="contact-icon" />
               <a href="https://x.com/dxeynzdxiy8" target="_blank" rel="noopener noreferrer">
@@ -51,7 +51,7 @@
             <div 
               class="contact-item"
               v-motion
-              v-bind="slideUpAnimation(700)"
+              v-bind="slideUpAnimation(400)"
             >
               <Icon icon="simple-icons:zenn" class="contact-icon" />
               <a href="https://zenn.dev/hijiri_88" target="_blank" rel="noopener noreferrer">
@@ -63,7 +63,7 @@
           <div 
             class="social-links"
             v-motion
-            v-bind="slideFromSideAnimation('bottom', 800)"
+            v-bind="slideFromSideAnimation('bottom', 450)"
           >
           </div>
         </div>
@@ -88,6 +88,11 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
 }
 
 .contact-info {
+  /* GPUアクセラレーション */
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  
   h3 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
@@ -113,19 +118,29 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   padding: 1rem;
   background-color: var(--bg-secondary);
   border-radius: 8px;
-  transition: all 0.2s ease;
   border: 1px solid var(--border-color);
+  
+  /* パフォーマンス最適化 */
+  will-change: transform, background-color;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout;
+  
+  /* 軽量化されたトランジション */
+  transition: transform 0.15s ease, background-color 0.15s ease;
   
   &:hover {
     background-color: var(--bg-tertiary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--shadow);
+    transform: translateY(-1px) translateZ(0);
   }
   
   .contact-icon {
     font-size: 1.5rem;
     color: var(--accent);
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
+    /* アイコン最適化 */
+    will-change: auto;
+    flex-shrink: 0;
   }
   
   span, a {
@@ -133,7 +148,7 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     font-weight: 400;
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
     
     &:hover {
       color: var(--text-primary);
@@ -146,6 +161,10 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  /* GPUアクセラレーション */
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .social-link {
@@ -154,7 +173,6 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   padding: 0.75rem 1.5rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -164,12 +182,20 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   letter-spacing: 0.02em;
   background-color: var(--bg-tertiary);
   
+  /* パフォーマンス最適化 */
+  will-change: transform, background-color;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout;
+  
+  /* 軽量化されたトランジション */
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  
   &:hover {
     background-color: var(--accent);
     color: var(--bg-primary);
     border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--shadow);
+    transform: translateY(-1px) translateZ(0);
   }
 }
 
