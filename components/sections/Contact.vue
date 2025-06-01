@@ -23,7 +23,7 @@
               v-bind="slideUpAnimation(250)"
             >
               <Icon icon="material-symbols:mail" class="contact-icon" />
-              <span>satohiji0808@outlook.com</span>
+              <span class="email-address">satohiji0808@outlook.com</span>
             </div>
             
             <div 
@@ -85,6 +85,8 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  /* 小さな画面での余白調整 */
+  padding: 0 1rem;
 }
 
 .contact-info {
@@ -100,6 +102,12 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     transition: color 0.3s ease;
+    
+    /* 小さな画面でのフォントサイズ調整 */
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 
@@ -108,6 +116,12 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 3rem;
+  
+  /* 小さな画面でのギャップ調整 */
+  @media (max-width: 480px) {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .contact-item {
@@ -129,6 +143,21 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   /* 軽量化されたトランジション */
   transition: transform 0.15s ease, background-color 0.15s ease;
   
+  /* レスポンシブ対応 */
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    gap: 0.75rem;
+    /* 小さな画面では横並びから縦並びに変更 */
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* iPhone SE以下の非常に小さな画面 */
+  @media (max-width: 375px) {
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+  }
+  
   &:hover {
     background-color: var(--bg-tertiary);
     transform: translateY(-1px) translateZ(0);
@@ -141,6 +170,11 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     /* アイコン最適化 */
     will-change: auto;
     flex-shrink: 0;
+    
+    /* 小さな画面でのアイコンサイズ調整 */
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
   }
   
   span, a {
@@ -150,8 +184,52 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     text-decoration: none;
     transition: color 0.2s ease;
     
+    /* テキストの折り返しを許可 */
+    word-break: break-all;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    
+    /* 小さな画面でのフォントサイズ調整 */
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    /* iPhone SE以下での更なる調整 */
+    @media (max-width: 375px) {
+      font-size: 0.85rem;
+    }
+    
     &:hover {
       color: var(--text-primary);
+    }
+    
+    /* メールアドレス専用スタイル */
+    &.email-address {
+      /* メールアドレスは特に長いので積極的に改行 */
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      white-space: normal;
+      max-width: 100%;
+      
+      @media (max-width: 480px) {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        /* 縦並び時の最大幅制限 */
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      
+      @media (max-width: 375px) {
+        font-size: 0.8rem;
+        max-width: 220px;
+      }
+      
+      /* iPhone SE第1世代など極小画面 */
+      @media (max-width: 320px) {
+        font-size: 0.75rem;
+        max-width: 200px;
+      }
     }
   }
 }
