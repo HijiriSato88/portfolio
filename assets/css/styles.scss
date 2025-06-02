@@ -195,10 +195,19 @@ body {
   @include section-padding;
 }
 
-.skills-grid {
+// スキルセクションのグリッドスタイル
+// components/sections/Skills.vueのスタイルが優先
+.skills-grid, .skills-grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 
 .skill-category {

@@ -8,7 +8,7 @@
       >
         Skills
       </h2>
-      <div class="skills-grid grid md:grid-cols-3 gap-8">
+      <div class="skills-grid-container">
         <div 
           v-for="(category, index) in skillCategories" 
           :key="category.title" 
@@ -82,11 +82,31 @@ const skillCategories: SkillCategory[] = [
 </script>
 
 <style scoped>
+.skills-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  
+  /* モバイル向け中央揃え */
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
 .skill-category {
   /* GPUアクセラレーションを有効化 */
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
+  
+  /* モバイル向け幅設定 */
+  @media (max-width: 767px) {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
 .skill-item {
