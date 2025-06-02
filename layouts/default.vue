@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useDarkMode } from '~/composables/useDarkMode' // カスタムComposableとして定義している場合
 
@@ -66,8 +66,30 @@ const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
 }
 
+// ビューポート高さの動的調整
+const updateViewportHeight = () => {
+  if (process.client) {
+    const vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+  }
+}
+
 // コンポーネントのマウント時にダークモード初期化を確実に実行
 onMounted(() => {
   initializeDarkMode()
+  
+  // ビューポート高さの初期設定
+  updateViewportHeight()
+  
+  // リサイズ時にビューポート高さを更新
+  window.addEventListener('resize', updateViewportHeight)
+  window.addEventListener('orientationchange', updateViewportHeight)
+})
+
+onUnmounted(() => {
+  if (process.client) {
+    window.removeEventListener('resize', updateViewportHeight)
+    window.removeEventListener('orientationchange', updateViewportHeight)
+  }
 })
 </script>
