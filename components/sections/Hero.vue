@@ -36,9 +36,9 @@ const animateTextTransition = (): void => {
   let currentText = binaryText;
   
   // 各文字の変化タイミングを計算
-  const totalDuration = 6000; // 6秒に延長
+  const totalDuration = 4500; 
   const charCount = targetChars.length;
-  const intervalTime = 80; // 80msごとに更新（よりゆっくり）
+  const intervalTime = 60;
   
   let progress = 0;
   const maxProgress = totalDuration / intervalTime;
@@ -121,9 +121,6 @@ onMounted(() => {
   text-align: center !important;
   background-color: transparent !important;
   color: var(--accent) !important;
-  padding: 0.5em 1em !important;
-  border: 1px solid var(--accent) !important;
-  border-radius: 8px !important;
   /* 初期表示時はトランジション無し */
   transition: none !important;
   white-space: pre-wrap !important;
@@ -135,7 +132,6 @@ onMounted(() => {
     font-size: 0.6rem !important;
     letter-spacing: 1px !important;
     word-spacing: 4px !important;
-    padding: 0.3em 0.6em !important;
     line-height: 1.2 !important;
     max-width: 85vw !important;
   }
@@ -145,7 +141,6 @@ onMounted(() => {
     font-size: 0.5rem !important;
     letter-spacing: 0.5px !important;
     word-spacing: 2px !important;
-    padding: 0.2em 0.4em !important;
     max-width: 80vw !important;
   }
 }

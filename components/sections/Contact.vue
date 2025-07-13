@@ -23,7 +23,9 @@
               v-bind="slideUpAnimation(250)"
             >
               <Icon icon="material-symbols:mail" class="contact-icon" />
-              <span class="email-address">satohiji0808@outlook.com</span>
+              <a href="mailto:satohiji0808@outlook.com" class="email-address">
+                satohiji0808@outlook.com
+              </a>
             </div>
             
             <div 
