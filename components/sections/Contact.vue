@@ -60,13 +60,6 @@
               </a>
             </div>
           </div>
-          
-          <div 
-            class="social-links"
-            v-motion
-            v-bind="slideFromSideAnimation('bottom', 450)"
-          >
-          </div>
         </div>
       </div>
     </div>
@@ -82,12 +75,32 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
 </script>
 
 <style scoped>
+.contact-section {
+  padding: 5rem 2rem 2.5rem;
+
+  @media (min-width: 768px) {
+    padding: 7rem 4rem 3rem;
+  }
+}
+
 .contact-content-center {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  padding: 2.5rem 2rem;
+  background-color: var(--surface-card);
+  border: 1px solid var(--surface-outline);
+  border-radius: 28px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 48px rgba(17, 17, 17, 0.12);
+  position: relative;
+  overflow: hidden;
+  
   /* 小さな画面での余白調整 */
-  padding: 0 1rem;
+  @media (max-width: 480px) {
+    padding: 2rem 1.5rem;
+    border-radius: 22px;
+  }
 }
 
 .contact-info {
@@ -95,21 +108,6 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
-  
-  h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    
-    /* 小さな画面でのフォントサイズ調整 */
-    @media (max-width: 480px) {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-  }
 }
 
 .contact-items {
@@ -130,10 +128,12 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 1rem;
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+  padding: 1.1rem 1.25rem;
+  background-color: var(--surface-card);
+  border-radius: 18px;
+  border: 1px solid var(--surface-outline);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 36px rgba(17, 17, 17, 0.1);
   
   /* パフォーマンス最適化 */
   will-change: transform, background-color;
@@ -142,11 +142,11 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   contain: layout;
   
   /* 軽量化されたトランジション */
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition: transform 0.25s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   
   /* レスポンシブ対応 */
   @media (max-width: 480px) {
-    padding: 0.75rem;
+    padding: 0.85rem;
     gap: 0.75rem;
     /* 小さな画面では横並びから縦並びに変更 */
     flex-direction: column;
@@ -155,13 +155,15 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   
   /* iPhone SE以下の非常に小さな画面 */
   @media (max-width: 375px) {
-    padding: 0.5rem;
+    padding: 0.6rem;
     margin: 0 0.5rem;
   }
   
   &:hover {
-    background-color: var(--bg-tertiary);
-    transform: translateY(-1px) translateZ(0);
+    background-color: var(--accent);
+    border-color: transparent;
+    transform: translateY(-2px) translateZ(0);
+    box-shadow: 0 16px 32px rgba(182, 138, 90, 0.25);
   }
   
   .contact-icon {
@@ -178,7 +180,11 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     }
   }
   
-  span, a {
+  &:hover .contact-icon {
+    color: #fdfbf7;
+  }
+  
+  a {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     color: var(--text-secondary);
@@ -202,7 +208,7 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     }
     
     &:hover {
-      color: var(--text-primary);
+      color: var(--accent);
     }
     
     /* メールアドレス専用スタイル */
@@ -235,59 +241,7 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   }
 }
 
-.social-links {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  /* GPUアクセラレーション */
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-.social-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  background-color: var(--bg-tertiary);
-  
-  /* パフォーマンス最適化 */
-  will-change: transform, background-color;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  contain: layout;
-  
-  /* 軽量化されたトランジション */
-  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  
-  &:hover {
-    background-color: var(--accent);
-    color: var(--bg-primary);
-    border-color: var(--accent);
-    transform: translateY(-1px) translateZ(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .social-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .social-link {
-    width: 100%;
-    max-width: 200px;
-    justify-content: center;
-  }
+.contact-item:hover a {
+  color: #fdfbf7;
 }
 </style>

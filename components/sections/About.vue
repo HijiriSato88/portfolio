@@ -29,6 +29,9 @@
           v-bind="slideFromSideAnimation('right', 600)"
         >
           <p>
+            佐藤 聖璃 / Hijiri Sato
+          </p>
+          <p>
             川越在住の大学生エンジニア<br>
             普段は大学生活を送りながら、インターンバイトで開発経験を積んでいます
           </p>
@@ -66,15 +69,18 @@ const { sectionTitleAnimation, slideFromSideAnimation } = useAnimations()
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 3px solid rgba(25, 26, 26, 0.18);
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 24px 48px rgba(17, 17, 17, 0.16);
   
   /* アニメーション */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .profile-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
+  border-color: rgba(182, 138, 90, 0.35);
+  box-shadow: 0 28px 56px rgba(17, 17, 17, 0.22);
 }
 
 @media (max-width: 767px) {

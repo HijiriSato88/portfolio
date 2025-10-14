@@ -1,30 +1,32 @@
-@use "sass:color";
-
 // CSS変数定義
 :root {
-  // ライトモード用カラー
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f5f5;
-  --bg-tertiary: #ffffff;
-  --text-primary: #111111;
-  --text-secondary: #2d2d2d;
-  --text-muted: #737373;
-  --border-color: #e5e5e5;
-  --shadow: rgba(0, 0, 0, 0.1);
-  --accent: #000000;
+  // モダンコンクリート + コーヒーアクセントパレット（ライトモード）
+  --bg-primary: #e6e6e5;
+  --bg-secondary: #dadad9;
+  --bg-tertiary: #f3f3f2;
+  --text-primary: #191a1a;
+  --text-secondary: #2b2c2d;
+  --text-muted: #6f7072;
+  --border-color: #bebfbe;
+  --shadow: rgba(17, 17, 17, 0.12);
+  --accent: #b68a5a;
+  --surface-card: rgba(255, 255, 255, 0.6);
+  --surface-outline: rgba(25, 26, 26, 0.08);
 }
 
 .dark {
   // ダークモード用カラー
-  --bg-primary: #0f0f0f;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #262626;
-  --text-primary: #ffffff;
-  --text-secondary: #e5e5e5;
-  --text-muted: #a3a3a3;
-  --border-color: #404040;
-  --shadow: rgba(255, 255, 255, 0.1);
-  --accent: #ffffff;
+  --bg-primary: #111212;
+  --bg-secondary: #161718;
+  --bg-tertiary: #1c1d1f;
+  --text-primary: #f4f4f4;
+  --text-secondary: #d6d6d6;
+  --text-muted: #8d8f92;
+  --border-color: #303234;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --accent: #c69b69;
+  --surface-card: rgba(255, 255, 255, 0.05);
+  --surface-outline: rgba(255, 255, 255, 0.08);
 }
 
 // モノトーン
@@ -67,7 +69,14 @@ body {
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 45%), radial-gradient(circle at 20% 20%, rgba(182, 138, 90, 0.12) 0%, rgba(182, 138, 90, 0) 55%), linear-gradient(225deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 60%);
+  background-attachment: fixed;
+  background-size: cover;
+  transition: background-color 0.4s ease, color 0.3s ease, background-image 0.4s ease;
+}
+
+.dark body {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 45%), radial-gradient(circle at 18% 22%, rgba(198, 155, 105, 0.08) 0%, rgba(198, 155, 105, 0) 55%), linear-gradient(225deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 65%);
 }
 
 // カスタムスタイル
@@ -156,7 +165,10 @@ body {
 // About Section
 .about-section {
   background-color: var(--bg-secondary);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 55%), linear-gradient(225deg, rgba(182, 138, 90, 0.1) 0%, rgba(182, 138, 90, 0) 60%);
   transition: background-color 0.3s ease;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   @include section-padding;
 }
 
@@ -178,11 +190,17 @@ body {
 
 .about-text {
   p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
     color: var(--text-secondary);
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    background-color: var(--surface-card);
+    border: 1px solid var(--surface-outline);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 14px 32px rgba(17, 17, 17, 0.08);
     
     &:last-child {
       margin-bottom: 0;
@@ -192,6 +210,10 @@ body {
 
 // Skills Section
 .skills-section {
+  background-color: var(--bg-tertiary);
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 55%);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   @include section-padding;
 }
 
@@ -201,27 +223,40 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .skills-section .skill-chip {
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--surface-outline);
   border-radius: 9999px;
-  background-color: var(--bg-secondary);
+  background-color: var(--surface-card);
   color: var(--text-primary);
   font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   min-width: 140px;
   text-align: center;
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.08);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: var(--accent);
+    border-color: transparent;
+    color: #fdfbf7;
+    box-shadow: 0 14px 32px rgba(182, 138, 90, 0.25);
+  }
 }
 
 // Career Section
 .career-section {
   background-color: var(--bg-secondary);
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 55%);
   transition: background-color 0.3s ease;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   @include section-padding;
 }
 
@@ -300,48 +335,10 @@ body {
 
 // Contact Section
 .contact-section {
+  background-color: var(--bg-secondary);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0) 55%), linear-gradient(225deg, rgba(182, 138, 90, 0.08) 0%, rgba(182, 138, 90, 0) 60%);
+  border-top: 1px solid var(--border-color);
   @include section-padding;
-}
-
-// Button Styles
-.button {
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  
-  &.primary {
-    background-color: var(--accent);
-    color: var(--bg-primary);
-    
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-  
-  &.secondary {
-    background-color: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    
-    &:hover {
-      background-color: var(--accent);
-      color: var(--bg-primary);
-    }
-  }
-  
-  &.full-width {
-    width: 100%;
-  }
 }
 
 // Header & Footer
@@ -350,14 +347,14 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid $gray-800;
+  background-color: rgba(235, 235, 234, 0.75);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-color);
   z-index: 100;
   padding: 1rem 0;
   
   .dark & {
-    background-color: rgba(15, 15, 15, 0.95);
+    background-color: rgba(17, 18, 18, 0.9);
     border-bottom-color: var(--border-color);
   }
   
@@ -378,7 +375,7 @@ body {
 .nav-logo {
   font-size: 1.25rem;
   font-weight: 500;
-  color: $white;
+  color: var(--text-primary);
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
@@ -398,7 +395,7 @@ body {
   span {
     width: 25px;
     height: 3px;
-    background-color: $white;
+    background-color: var(--text-primary);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -427,7 +424,7 @@ body {
   align-items: center;
   
   a {
-    color: $gray-300;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s ease;
     font-family: 'Montserrat', sans-serif;
@@ -437,7 +434,7 @@ body {
     font-size: 0.9rem;
     
     &:hover {
-      color: $white;
+      color: var(--accent);
     }
   }
   
@@ -449,7 +446,7 @@ body {
     height: 100vh;
     height: 100dvh; /* 動的viewport height - ブラウザUI変化に対応 */
     height: calc(var(--vh, 1vh) * 100); /* JS計算値のフォールバック */
-    background-color: rgba(0, 0, 0, 0.98);
+    background-color: rgba(235, 235, 234, 0.97);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -472,7 +469,7 @@ body {
     min-height: -webkit-fill-available;
     
     .dark & {
-      background-color: rgba(15, 15, 15, 0.98);
+      background-color: rgba(14, 14, 15, 0.96);
     }
     
     &.active {
@@ -484,7 +481,7 @@ body {
       font-weight: 300;
       
       &:hover {
-        color: $white;
+        color: var(--accent);
         transform: scale(1.1);
       }
       
@@ -497,17 +494,18 @@ body {
 }
 
 .theme-toggle {
-  background: none;
-  border: 1px solid $white;
-  border-radius: 4px;
-  padding: 0.5rem;
+  background: rgba(25, 26, 26, 0.08);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
   font-size: 1rem;
-  transition: all 0.2s ease;
-  color: $white;
+  transition: all 0.25s ease;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
   
   .theme-icon {
     font-size: 1.2rem;
@@ -518,8 +516,8 @@ body {
   }
   
   &:hover {
-    background-color: $white;
-    color: $black;
+    background-color: var(--accent);
+    color: var(--bg-primary);
     transform: scale(1.05);
   }
   
@@ -538,11 +536,16 @@ body {
   }
 }
 
+.dark .theme-toggle {
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .site-footer {
-  background-color: #000000;
-  color: #ffffff;
-  padding: 2rem 0;
-  border-top: 1px solid #333333;
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border-color);
+  backdrop-filter: blur(8px);
 }
 
 .footer-content {
