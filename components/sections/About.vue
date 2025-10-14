@@ -6,7 +6,7 @@
         v-motion
         v-bind="sectionTitleAnimation"
       >
-        About Me
+        About
       </h2>
       <div class="about-content">
         <div 

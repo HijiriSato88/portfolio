@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SectionsHero />
     <SectionsAbout />
     <SectionsSkills />
     <SectionsCareer />
