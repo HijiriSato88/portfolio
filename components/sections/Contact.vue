@@ -87,20 +87,6 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  padding: 2.5rem 2rem;
-  background-color: var(--surface-card);
-  border: 1px solid var(--surface-outline);
-  border-radius: 28px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 24px 48px rgba(17, 17, 17, 0.12);
-  position: relative;
-  overflow: hidden;
-  
-  /* 小さな画面での余白調整 */
-  @media (max-width: 480px) {
-    padding: 2rem 1.5rem;
-    border-radius: 22px;
-  }
 }
 
 .contact-info {
@@ -114,12 +100,10 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
   
   /* 小さな画面でのギャップ調整 */
   @media (max-width: 480px) {
     gap: 1rem;
-    margin-bottom: 1.25rem;
   }
 }
 
