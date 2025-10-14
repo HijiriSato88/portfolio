@@ -19,8 +19,8 @@
           <!-- ナビゲーションリンク -->
           <div class="nav-links" :class="{ active: isMobileMenuOpen }">
             <a href="#about" @click="closeMobileMenu">About</a>
-            <a href="#skills" @click="closeMobileMenu">Skills</a>
-            <a href="#career" @click="closeMobileMenu">Career</a>
+            <a href="#skills" @click="closeMobileMenu">Tech Stack</a>
+            <a href="#career" @click="closeMobileMenu">Experience</a>
             <a href="#contact" @click="closeMobileMenu">Contact</a>
 
             <!-- ダークモード切り替えボタン -->
@@ -53,7 +53,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Icon } from '@iconify/vue'
-import { useDarkMode } from '~/composables/useDarkMode' // カスタムComposableとして定義している場合
+import { useDarkMode } from '~/composables/useDarkMode'
 
 const isMobileMenuOpen = ref(false)
 const { isDark, toggleDarkMode, initializeDarkMode } = useDarkMode()
@@ -66,7 +66,6 @@ const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
 }
 
-// ビューポート高さの動的調整
 const updateViewportHeight = () => {
   if (process.client) {
     const vh = window.innerHeight * 0.01
@@ -74,14 +73,11 @@ const updateViewportHeight = () => {
   }
 }
 
-// コンポーネントのマウント時にダークモード初期化を確実に実行
 onMounted(() => {
   initializeDarkMode()
   
-  // ビューポート高さの初期設定
   updateViewportHeight()
   
-  // リサイズ時にビューポート高さを更新
   window.addEventListener('resize', updateViewportHeight)
   window.addEventListener('orientationchange', updateViewportHeight)
 })

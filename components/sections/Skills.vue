@@ -4,7 +4,7 @@
       <h2 
         class="section-title"
       >
-        Skills
+        Tech Stack
       </h2>
       <div class="skill-list">
         <span
