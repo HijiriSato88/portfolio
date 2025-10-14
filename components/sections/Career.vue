@@ -52,44 +52,44 @@ const careerHistory: CareerItem[] = [
   {
     id: 2,
     period: '2024 / 08 - 2024 / 09 (2weeks)',
-    title: 'engineer intern',
+    title: 'internship',
     company: 'アスクル株式会社',
     description: `ASKULにおけるバックエンド開発業務を経験`
   },
   {
     id: 3,
     period: '2024 / 10 - 2024 / 12 (2months)',
-    title: 'engineer intern',
+    title: 'internship',
     company: '株式会社ヴァル研究所',
     description: `『駅すぱあと』搭載用の運賃データ・ダイヤデータ作成、妥当性チェックツールの開発`
   },
   {
     id: 4,
     period: '2025 / 01 -',
-    title: 'engineer intern',
+    title: 'internship',
     company: '株式会社ラブグラフ',
     description: `運用システムの新機能開発および既存機能の改修`
   },
   {
     id: 5,
     period: '2025 / 02 - 2025 / 03 (2months)',
-    title: 'engineer intern',
+    title: 'internship',
     company: '株式会社サイバーエージェント',
     description: `Go College. Goの基本文法から実践的なバックエンド開発までを体系的に学習`
   },
   {
     id: 6,
     period: '2025 / 09 (3days)',
-    title: 'engineer intern',
+    title: 'internship',
     company: '株式会社サイバーエージェント',
     description: `Universe. メディア事業のテーマに沿ったチーム開発. 最優秀賞受賞`
   },
     {
     id: 7,
     period: '2025 / 08 - 2025 / 10 (2months)',
-    title: 'engineer intern',
+    title: 'internship',
     company: 'LINEヤフー株式会社',
-    description: `LINEスキマニののサーバーサイド開発`
+    description: `LINEスキマニのサーバーサイド開発`
   },
 ]
 </script>
