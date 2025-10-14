@@ -14,7 +14,6 @@
           v-motion
           v-bind="slideFromSideAnimation('left', 200)"
         >
-          <h3>Get in Touch</h3>
           
           <div class="contact-items">
             <div 
@@ -117,12 +116,12 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   
   /* 小さな画面でのギャップ調整 */
   @media (max-width: 480px) {
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
   }
 }
 
