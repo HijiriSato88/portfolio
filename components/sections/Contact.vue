@@ -70,7 +70,6 @@
 import { Icon } from '@iconify/vue'
 import { useAnimations } from '~/composables/useAnimations'
 
-// アニメーション設定を取得
 const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useAnimations()
 </script>
 
@@ -90,7 +89,6 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
 }
 
 .contact-info {
-  /* GPUアクセラレーション */
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -100,8 +98,7 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  
-  /* 小さな画面でのギャップ調整 */
+
   @media (max-width: 480px) {
     gap: 1rem;
   }
@@ -118,26 +115,21 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
   border: 1px solid var(--surface-outline);
   backdrop-filter: blur(8px);
   box-shadow: 0 18px 36px rgba(17, 17, 17, 0.1);
-  
-  /* パフォーマンス最適化 */
+
   will-change: transform, background-color;
   backface-visibility: hidden;
   transform: translateZ(0);
   contain: layout;
-  
-  /* 軽量化されたトランジション */
+
   transition: transform 0.25s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  
-  /* レスポンシブ対応 */
+
   @media (max-width: 480px) {
     padding: 0.85rem;
     gap: 0.75rem;
-    /* 小さな画面では横並びから縦並びに変更 */
     flex-direction: column;
     text-align: center;
   }
-  
-  /* iPhone SE以下の非常に小さな画面 */
+
   @media (max-width: 375px) {
     padding: 0.6rem;
     margin: 0 0.5rem;
@@ -154,11 +146,9 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     font-size: 1.5rem;
     color: var(--accent);
     transition: color 0.2s ease;
-    /* アイコン最適化 */
     will-change: auto;
     flex-shrink: 0;
-    
-    /* 小さな画面でのアイコンサイズ調整 */
+
     @media (max-width: 480px) {
       font-size: 1.25rem;
     }
@@ -174,19 +164,16 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s ease;
-    
-    /* テキストの折り返しを許可 */
+
     word-break: break-all;
     overflow-wrap: break-word;
     hyphens: auto;
-    
-    /* 小さな画面でのフォントサイズ調整 */
+
     @media (max-width: 480px) {
       font-size: 0.9rem;
       line-height: 1.4;
     }
-    
-    /* iPhone SE以下での更なる調整 */
+
     @media (max-width: 375px) {
       font-size: 0.85rem;
     }
@@ -194,29 +181,25 @@ const { sectionTitleAnimation, slideFromSideAnimation, slideUpAnimation } = useA
     &:hover {
       color: var(--accent);
     }
-    
-    /* メールアドレス専用スタイル */
+
     &.email-address {
-      /* メールアドレスは特に長いので積極的に改行 */
       word-break: break-all;
       overflow-wrap: anywhere;
       white-space: normal;
       max-width: 100%;
-      
+
       @media (max-width: 480px) {
         font-size: 0.85rem;
         line-height: 1.3;
-        /* 縦並び時の最大幅制限 */
         max-width: 250px;
         margin: 0 auto;
       }
-      
+
       @media (max-width: 375px) {
         font-size: 0.8rem;
         max-width: 220px;
       }
-      
-      /* iPhone SE第1世代など極小画面 */
+
       @media (max-width: 320px) {
         font-size: 0.75rem;
         max-width: 200px;

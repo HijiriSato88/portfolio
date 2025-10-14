@@ -31,7 +31,6 @@
 <script setup lang="ts">
 import { useAnimations } from '~/composables/useAnimations'
 
-// アニメーション設定を取得
 const { sectionTitleAnimation, alternateSlideAnimation } = useAnimations()
 
 interface CareerItem {
@@ -94,4 +93,3 @@ const careerHistory: CareerItem[] = [
   },
 ]
 </script>
-

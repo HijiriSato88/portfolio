@@ -51,29 +51,25 @@
 <script setup lang="ts">
 import { useAnimations } from '~/composables/useAnimations'
 
-// アニメーション設定を取得
 const { sectionTitleAnimation, slideFromSideAnimation } = useAnimations()
 </script>
 
 <style scoped>
 .profile-image {
-  /* レイアウト */
   aspect-ratio: 1 / 1;
   width: 100%;
   max-width: 200px;
   height: auto;
   margin: 0 auto;
   display: block;
-  
-  /* 外観 */
+
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
   border: 3px solid rgba(25, 26, 26, 0.18);
   background-color: rgba(255, 255, 255, 0.35);
   box-shadow: 0 24px 48px rgba(17, 17, 17, 0.16);
-  
-  /* アニメーション */
+
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 

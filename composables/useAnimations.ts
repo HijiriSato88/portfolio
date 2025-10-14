@@ -1,4 +1,3 @@
-// アニメーション設定のcomposable
 interface AnimationTransition {
   duration: number;
   delay?: number;
@@ -22,7 +21,6 @@ interface AnimationConfig {
 type AnimationDirection = 'left' | 'right' | 'bottom';
 
 export const useAnimations = () => {
-  // セクションタイトル用のアニメーション
   const sectionTitleAnimation: AnimationConfig = {
     initial: { opacity: 0, y: 40 },
     visibleOnce: { 
@@ -32,7 +30,6 @@ export const useAnimations = () => {
     }
   }
 
-  // カード/アイテム用のアニメーション（下からスライドイン）
   const slideUpAnimation = (delay: number = 0): AnimationConfig => ({
     initial: { opacity: 0, y: 30 },
     visibleOnce: { 
@@ -46,7 +43,6 @@ export const useAnimations = () => {
     }
   })
 
-  // 左右交互のスライドイン（タイムライン用）
   const alternateSlideAnimation = (index: number, baseDelay: number = 200): AnimationConfig => ({
     initial: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
     visibleOnce: { 
@@ -60,7 +56,6 @@ export const useAnimations = () => {
     }
   })
 
-  // 方向指定スライドイン
   const slideFromSideAnimation = (
     direction: AnimationDirection = 'left', 
     delay: number = 300
@@ -97,5 +92,4 @@ export const useAnimations = () => {
   }
 }
 
-// 型エクスポート（他のファイルで使用可能）
-export type { AnimationConfig, AnimationDirection } 
+export type { AnimationConfig, AnimationDirection }
