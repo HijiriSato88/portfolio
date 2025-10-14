@@ -48,44 +48,49 @@ const careerHistory: CareerItem[] = [
     period: '2022 -',
     title: 'student',
     company: '東京電機大学',
-    description: `スマートICTソリューション研究室に在籍し、
-                  どこからでも参加できるオープンキャンパス向けWebシステムの開発に取り組んでいる。
-                  また、課外活動として硬式庭球部にも所属し、文武両道を大切にしている。`
+    description: `スマートICTソリューション研究室所属`
   },
   {
     id: 2,
-    period: '2024 / 8 - 2024 / 9',
+    period: '2024 / 08 - 2024 / 09 (2weeks)',
     title: 'engineer intern',
     company: 'アスクル株式会社',
-    description: `国内最大級のBtoB向けECサイト『ASKUL／SOLOEL』におけるバックエンド開発業務を経験。
-                  実務での開発体験を通じて、大規模サービスの仕組みを学んだ。`
+    description: `ASKULにおけるバックエンド開発業務を経験`
   },
   {
     id: 3,
-    period: '2024 / 10 - 2024 / 12',
+    period: '2024 / 10 - 2024 / 12 (2months)',
     title: 'engineer intern',
     company: '株式会社ヴァル研究所',
-    description: `『駅すぱあと』搭載用の運賃データ・ダイヤデータ作成や、
-                  それらの妥当性チェックツールの開発・改修を担当。
-                  正確性と効率性を意識したツール開発に注力した。`
+    description: `『駅すぱあと』搭載用の運賃データ・ダイヤデータ作成、妥当性チェックツールの開発`
   },
   {
     id: 4,
-    period: '2025 / 1 -',
+    period: '2025 / 01 -',
     title: 'engineer intern',
     company: '株式会社ラブグラフ',
-    description: `運用システムの新機能開発および既存機能の改修を担当。
-                  バックエンドを主軸に、フロントエンドのタスクも積極的に対応し、
-                  フルスタックに近い立ち回りでプロダクト開発に貢献している。`
+    description: `運用システムの新機能開発および既存機能の改修`
   },
   {
     id: 5,
-    period: '2025 / 2 - 2025 / 3',
+    period: '2025 / 02 - 2025 / 03 (2months)',
     title: 'engineer intern',
     company: '株式会社サイバーエージェント',
-    description: `短期インターンである Go College に参加。
-                  Goの基本文法から実践的なバックエンド開発までを体系的に学習。
-                  発展課題としてクリーンアーキテクチャへのリファクタリング、Redisを用いたパフォーマンス改善、ミドルウェアを活用したログ収集を実装。`
+    description: `Go College. Goの基本文法から実践的なバックエンド開発までを体系的に学習`
+  },
+  {
+    id: 6,
+    period: '2025 / 09 (3days)',
+    title: 'engineer intern',
+    company: '株式会社サイバーエージェント',
+    description: `Universe. メディア事業のテーマに沿ったチーム開発. 最優秀賞受賞`
+  },
+    {
+    id: 7,
+    period: '2025 / 08 - 2025 / 10 (2months)',
+    title: 'engineer intern',
+    company: 'LINEヤフー株式会社',
+    description: `LINEスキマニののサーバーサイド開発`
   },
 ]
 </script>
