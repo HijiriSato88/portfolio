@@ -43,7 +43,7 @@
     <footer class="site-footer">
       <div class="page-container">
         <div class="footer-content">
-          <p>&copy; {{ new Date().getFullYear() }} hijiri. All rights reserved.</p>
+          <p>&copy; {{ new Date().getFullYear() }} Hijiri Sato</p>
         </div>
       </div>
     </footer>
