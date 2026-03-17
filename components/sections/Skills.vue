@@ -26,6 +26,6 @@ const skills = [
   'Golang',
   'MySQL',
   'Docker',
-  'Google Cloud'
+  'AWS'
 ]
 </script>
