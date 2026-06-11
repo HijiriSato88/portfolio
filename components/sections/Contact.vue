@@ -1,6 +1,6 @@
 <template>
   <section id="contact">
-    <p class="log-label rv"><span class="method">cat</span> contact/*.txt <span class="status"># let's talk</span></p>
+    <p class="log-label rv"><span class="method">cat</span> contact/*.txt</p>
     <a href="mailto:satohiji0808@outlook.com" class="rv" style="display:inline-block">
       <span class="contact-big">LET'S<br>TALK?</span>
     </a>
