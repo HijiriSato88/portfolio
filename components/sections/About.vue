@@ -1,92 +1,61 @@
 <template>
-  <section id="about" class="about-section">
-    <div class="page-container">
-      <h2 
-        class="section-title"
-        v-motion
-        v-bind="sectionTitleAnimation"
-      >
-        About
-      </h2>
-      <div class="about-content">
-        <div 
-          class="about-image"
-          v-motion
-          v-bind="slideFromSideAnimation('left', 300)"
-        >
-          <NuxtImg 
-            src="/images/icon.png" 
-            alt="Hijiri Sato Profile Picture" 
-            class="profile-image"
-            sizes="(max-width: 480px) 140px, (max-width: 767px) 160px, 200px"
-            loading="lazy"
-            format="webp"
-          />
-        </div>
-        <div 
-          class="about-text"
-          v-motion
-          v-bind="slideFromSideAnimation('right', 600)"
-        >
-          <p>
-            佐藤 聖璃 / Hijiri Sato
-          </p>
-          <p>
-            大学生活を送りながらインターンバイトで開発経験を積んでいます
-          </p>
-          <p>
-            趣味はテニスとプログラミング
-          </p>
-          <p>
-            どこにいてもオープンキャンパスに参加できるようなシステムを作っており、  
-            教育の機会をより多くの人に届けることを目指しています
-          </p>
-        </div>
+  <section id="about">
+    <p class="log-label rv"><span class="method">cat</span> about/README.md</p>
+    <h2 class="sec-title rv">WHO <span class="ghost">AM I</span></h2>
+    <div class="about-body rv">
+      <p><strong>佐藤 聖璃 / Hijiri Sato </strong>東京電機大学 スマートICTソリューション研究室に所属しています。バックエンドを中心に、いくつかの企業でインターンとして開発に関わってきました。</p>
+      <p>小学生の頃からテニスを続けてきました。高校は仙台育英学園で硬式テニス部に所属し、全国選抜やインターハイにも出場。学生時代の多くを、部活に打ち込んできました。</p>
+      <div class="about-links">
+        <a href="https://github.com/HijiriSato88" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+        <a href="https://x.com/dxeynzdxiy8" target="_blank" rel="noopener noreferrer">X <span class="arrow">↗</span></a>
       </div>
+      <p class="back-line">
+        <a @click.prevent="$emit('navigate', '')" href="/">$ cd ~ <span class="dim">— back to top</span></a>
+      </p>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { useAnimations } from '~/composables/useAnimations'
-
-const { sectionTitleAnimation, slideFromSideAnimation } = useAnimations()
+defineEmits<{ navigate: [page: string] }>()
 </script>
 
-<style scoped>
-.profile-image {
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+<style scoped lang="scss">
+.about-body {
+  p {
+    color: var(--bone-dim);
+    margin-bottom: 1.6em;
+    max-width: 46em;
 
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  border: 3px solid rgba(25, 26, 26, 0.18);
-  background-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 24px 48px rgba(17, 17, 17, 0.16);
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.profile-image:hover {
-  transform: scale(1.03);
-  border-color: rgba(182, 138, 90, 0.35);
-  box-shadow: 0 28px 56px rgba(17, 17, 17, 0.22);
-}
-
-@media (max-width: 767px) {
-  .profile-image {
-    max-width: 160px;
+    strong { color: var(--bone); font-weight: 500; }
   }
 }
 
-@media (max-width: 480px) {
-  .profile-image {
-    max-width: 140px;
+.about-links {
+  display: flex;
+  gap: 28px;
+  margin-top: 2.5em;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+
+  a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--slate);
+    padding-bottom: 3px;
+    transition: color 0.3s, border-color 0.3s;
+
+    .arrow {
+      display: inline-block;
+      transition: transform 0.3s var(--ease);
+    }
+
+    &:hover {
+      color: var(--phos);
+      border-color: var(--phos);
+
+      .arrow { transform: translate(2px, -2px); }
+    }
   }
 }
 </style>
