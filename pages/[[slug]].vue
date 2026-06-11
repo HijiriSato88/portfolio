@@ -198,12 +198,14 @@ onMounted(() => {
 
   // loader boot sequence
   const bootLines: [string, number][] = [
-    ['$ boot hijiri-sato --portfolio', 0],
-    ['<span class="ok">[ OK ]</span> loading runtime ........... go, ruby, kotlin', 300],
-    ['<span class="ok">[ OK ]</span> mounting database .......... mysql', 550],
-    ['<span class="ok">[ OK ]</span> containers up .............. docker / aws', 800],
-    ['<span class="ok">[ OK ]</span> mission .................... deliver education to everyone', 1050],
-    ['$ server listening on :2026', 1350],
+    ['guest@hijiri88.dev login: guest', 0],
+    ['<span class="ok">[ ok ]</span> starting shell .......... /bin/sh', 200],
+    ['<span class="ok">[ ok ]</span> mount /about ............ who am I', 380],
+    ['<span class="ok">[ ok ]</span> mount /stack ........... go · ruby · kotlin', 540],
+    ['<span class="ok">[ ok ]</span> mount /archive ......... internships since 2022', 700],
+    ['<span class="ok">[ ok ]</span> mount /writing ......... tech blog posts', 860],
+    ['<span class="ok">[ ok ]</span> mount /contact ......... say hello', 1020],
+    ['# type <span class="ok">ls</span> to look around', 1220],
   ]
 
   const finishLoad = () => {
@@ -224,11 +226,16 @@ onMounted(() => {
         }
       }, t)
     })
+    const start = performance.now()
     let p = 0
     const iv = setInterval(() => {
-      p = Math.min(100, p + Math.ceil(Math.random() * 9))
+      p = Math.min(100, p + Math.ceil(Math.random() * 7))
       if (pctEl.value) pctEl.value.textContent = p + '%'
-      if (p >= 100) { clearInterval(iv); setTimeout(finishLoad, 350) }
+      if (p >= 100) {
+        clearInterval(iv)
+        // hold until the boot lines have all shown, then reveal
+        setTimeout(finishLoad, Math.max(350, 1500 - (performance.now() - start)))
+      }
     }, 70)
   }
 })
