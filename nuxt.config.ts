@@ -2,17 +2,18 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/google-fonts",
-    "@nuxt/image",
-    "@vueuse/motion/nuxt"
+    '@nuxtjs/google-fonts',
+    '@nuxt/image',
   ],
   css: [
     '~/assets/css/styles.scss'
   ],
   googleFonts: {
     families: {
-      Montserrat: [200, 300, 400, 500, 600, 700, 800]
+      Anton: [400],
+      'IBM Plex Mono': [300, 400, 500],
+      'Shippori Mincho': [500, 700],
+      'Zen Kaku Gothic New': [400, 500, 700],
     },
     display: 'swap'
   },
@@ -20,7 +21,4 @@ export default defineNuxtConfig({
     quality: 90,
     format: ['webp']
   },
-  build: {
-    transpile: ['@iconify/vue']
-  }
 })
